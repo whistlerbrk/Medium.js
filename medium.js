@@ -246,6 +246,7 @@
 
                     oldNode.parentNode.insertBefore(newNode, oldNode);
                     oldNode.parentNode.removeChild(oldNode);
+                    return newNode;
                 },
                 deleteNode: function(el){
                     el.parentNode.removeChild(el);
