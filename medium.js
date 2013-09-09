@@ -224,7 +224,13 @@
                             node.innerText = val;
                         }
                     }
-                    return (node.textContent || node.innerText).trim();
+                    if (node.textContent) {
+                        return node.textContent.trim();
+                    } else if (node.innerText) {
+                        return node.innerText.trim();
+                    } else {
+                        return null;
+                    }
                 },
                 changeTag: function(oldNode, newTag) {
                     var newNode = d.createElement(newTag),
