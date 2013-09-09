@@ -283,6 +283,17 @@
                 clean: function () {
 
                     /*
+                     * Fix mozilla junk
+                     * since recursing over inner children isn't yet implemented, I'm placing this here.
+                     */
+
+                    utils.html.allDescendants(settings.element, function(child) {
+                        if ((child.nodeName.toLowerCase() == "br") && (child.getAttribute("type") == "_moz")) {
+                            utils.html.deleteNode(child);
+                        }
+                    });
+
+                    /*
                      * Deletes invalid nodes
                      * Removes Attributes
                      */
